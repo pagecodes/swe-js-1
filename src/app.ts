@@ -11,6 +11,10 @@ async function main() {
   const { assistantThread, llm, tools, composioToolset } = await initSWEAgent();
   const { repo, issue } = await fromGithub(composioToolset);
 
+  /* Get values for name, email, used later for git commands */
+  let git_name = process.env.GIT_CONFIG_NAME
+  let git_email = process.env.GIT_CONFIG_EMAIL
+   
   const assistant = await llm.beta.assistants.create({
     name: "SWE agent",
     instructions: GOAL + `\nRepo is: ${repo} and your goal is to ${issue}`,

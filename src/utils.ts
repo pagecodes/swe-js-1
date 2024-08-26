@@ -60,16 +60,20 @@ function createGithubIssueValidator(owner: string, name: string, toolset: Compos
 }
 
 export async function fromGithub(toolset: ComposioToolSet): Promise<{ repo: string; issue: string }> {
-  const owner = await readUserInput(
+  let owner = process.env.GITHUB_USERNAME;
+  if (!owner) owner = await readUserInput(
     'Enter github repository owner',
     'github repository owner',
     (value: string) => value
   );
-  const name = await readUserInput(
+  let repo_name = process.env.GITHUB_REPO
+  if (!repo_name) { 
+    repo_name = await readUserInput(
     'Enter github repository name',
     'github repository name',
     (value: string) => value
   );
+  }
   const repo = `${owner}/${name.replace(",", "")}`;
   const issue = await readUserInput(
     'Enter github issue ID or description or path to the file containing description',
