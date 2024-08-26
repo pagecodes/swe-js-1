@@ -45,7 +45,7 @@ async function main() {
     console.log('=== Generated Patch ===\n' + response.patch, response);
     const branchName = getBranchNameFromIssue(issue);
     const output = await composioToolset.executeAction("SHELL_EXEC_COMMAND", {
-      cmd: `cp -r ${response.current_working_directory} git_repo && cd git_repo && git config --global --add safe.directory '*' && git config --global user.name 'Utkarsh Dixit' && git config --global user.email utkarshdix02@gmail.com && git checkout -b ${branchName} && git commit -m 'feat: ${issue}' && git push origin ${branchName}`
+      cmd: `cp -r ${response.current_working_directory} git_repo && cd git_repo && git config --global --add safe.directory '*' && git config --global user.name '${git_name}' && git config --global user.email '${git_email}' && git checkout -b ${branchName} && git commit -m 'feat: ${issue}' && git push origin ${branchName}`
     });
 
     // Wait for 2s
