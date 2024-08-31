@@ -7,6 +7,20 @@ Build and benchmark Software Engineering agents with Composio's tooling ecosyste
 SWE Development Kit (swekit) is a powerful framework for building Software Engineering agents using Composio's tooling ecosystem. 
 It provides tools like Github, Repo Indexing, Repo Search, File Manager, Shell Manager, and more.
 
+## Env vars
+
+To setup the SWE, `export` the following variables with appropriate values:
+
+
+GIT_CONFIG_NAME
+GIT_CONFIG_EMAIL
+GITHUB_USERNAME
+GITHUB_REPO
+OPENAI_API_KEY
+E2B_API_KEY
+GITHUB_ACCESS_TOKEN
+
+
 ## Key Features
 
 - **Agent Scaffolding**: Quickly create Devin like agents that work out-of-the-box with popular agentic frameworks like OpenAI, Langchain, and more.
