@@ -84,5 +84,7 @@ export async function fromGithub(toolset: ComposioToolSet): Promise<{ repo: stri
 }
 
 export function getBranchNameFromIssue(issue: string): string {
-  return "swe/" + issue.toLowerCase().replace(/\s+/g, '-') + "-" + nanoid();
+  const r1 = /\s+/g  // just replace whitespace, or...
+  const r2 = /[^a-zA-Z0-9]+/g  // replace whitespace and special chars
+  return "swe/" + issue.toLowerCase().replace(r2, '-') + "-" + nanoid();
 }
