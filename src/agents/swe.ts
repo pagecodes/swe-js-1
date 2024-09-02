@@ -1,18 +1,28 @@
-import { OpenAIToolSet, Workspace } from 'composio-core';
+import { OpenAIToolSet, LangchainToolSet, Workspace } from 'composio-core';
 import { BACKSTORY, DESCRIPTION, GOAL } from '../prompts';
 import OpenAI from 'openai';
+import ChatGemini from 'langchain'
 
 // Initialize tool.
+const OAIllm = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+});
 const llm = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
-const composioToolset = new OpenAIToolSet({ 
+
+const OAIcomposioToolset = new OpenAIToolSet({ 
+    workspaceConfig: Workspace.E2B({
+        apiKey: process.env.E2B_API_KEY,
+    })
+});
+const composioToolset = new LangchainToolSet({ 
     workspaceConfig: Workspace.E2B({
         apiKey: process.env.E2B_API_KEY,
     })
 });
 
-export async function initSWEAgent(): Promise<{composioToolset: OpenAIToolSet; assistantThread: OpenAI.Beta.Thread; llm: OpenAI; tools: Array<any>}> {
+export async function initSWEAgent(): Promise<{composioToolset: LangchainToolSet; assistantThread: OpenAI.Beta.Thread; llm: OpenAI; tools: Array<any>}> {
     let tools = await composioToolset.getTools({
         apps: [
             "filetool",

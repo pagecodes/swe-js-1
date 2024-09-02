@@ -20,6 +20,10 @@ OPENAI_API_KEY
 E2B_API_KEY
 GITHUB_ACCESS_TOKEN
 
+Optional:
+
+GITHUB_ISSUE_ID
+
 
 ## Key Features
 

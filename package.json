@@ -13,10 +13,10 @@
     "@langchain/anthropic": "^0.2.6",
     "@langchain/core": "^0.2.18",
     "@langchain/openai": "^0.2.4",
-    "composio-core": "^0.1.10",
+    "composio-core": "^0.1.16",
     "dotenv": "^16.4.5",
     "e2b": "^0.16.2",
-    "langchain": "^0.2.10",
+    "langchain": "^0.2.17",
     "nanoid": "^3.3.7",
     "openai": "^4.53.0",
     "ts-node-dev": "^2.0.0"
